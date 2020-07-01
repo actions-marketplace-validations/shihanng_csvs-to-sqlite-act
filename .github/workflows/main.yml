@@ -5,8 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     name: Test run
     steps:
-      - run: echo -n ${{ secrets.GITHUB_TOKEN }} | docker login -u ${{ github.actor }} --password-stdin docker.pkg.github.com
+      - name: Login
+        run: echo -n ${{ secrets.GITHUB_TOKEN }} | docker login -u ${{ github.actor }} --password-stdin docker.pkg.github.com
       - name: Checkout
         uses: actions/checkout@v2
       - name: Test
         uses: ./ # Uses an action in the root directory
+      - name: Logout
+        run: docker logout docker.pkg.github.com
+        if: ${{ always() }}
