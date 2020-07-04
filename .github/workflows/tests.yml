@@ -2,6 +2,9 @@ name: Tests
 
 on: [push]
 
+env:
+  TESTDATA: __tests__/testdata
+
 jobs:
   tests:
     runs-on: ubuntu-latest
@@ -14,7 +17,7 @@ jobs:
       - name: Test
         uses: ./ # Uses an action in the root directory
         with:
-          args: "--help"
+          args: ${TESTDATA}/test.csv ${TESTDATA}/test.db
       - name: Logout
         run: docker logout docker.pkg.github.com
         if: ${{ always() }}
