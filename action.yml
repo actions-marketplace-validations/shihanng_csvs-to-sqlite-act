@@ -1,12 +1,15 @@
 name: "csvs-to-sqlite"
 description: "run csvs-to-sqlite"
 inputs:
-  arg:
+  working_directory:
+    description: "Specify working-directory. Default is the root of the project."
+    default: "./"
+  cli_args:
     description: "Arguments to pass to csvs-to-sqlite"
     required: true
-    default: "--help"
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.arg }}
+    - ${{ inputs.working_directory }}
+    - ${{ inputs.cli_args }}
