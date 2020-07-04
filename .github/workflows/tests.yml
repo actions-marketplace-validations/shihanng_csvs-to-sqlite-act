@@ -17,7 +17,8 @@ jobs:
       - name: Test
         uses: ./ # Uses an action in the root directory
         with:
-          args: ${TESTDATA}/test.csv ${TESTDATA}/test.db
+          cli_args: test.csv test.db
+          working_directory: ${{ env.TESTDATA }}
       - name: Logout
         run: docker logout docker.pkg.github.com
         if: ${{ always() }}
