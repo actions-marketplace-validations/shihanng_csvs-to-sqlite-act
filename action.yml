@@ -1,12 +1,11 @@
 name: "csvs-to-sqlite"
 description: "run csvs-to-sqlite"
 inputs:
-  arg:
+  args:
     description: "Arguments to pass to csvs-to-sqlite"
     required: true
-    default: "--help"
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.arg }}
+    - ${{ inputs.args }}
