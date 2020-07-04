@@ -14,11 +14,18 @@ jobs:
         run: echo -n ${{ secrets.GITHUB_TOKEN }} | docker login -u ${{ github.actor }} --password-stdin docker.pkg.github.com
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Test
-        uses: ./ # Uses an action in the root directory
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: "12"
+      - run: npm install
+      - name: csvs-to-sqlite-act
+        uses: ./
         with:
           cli_args: test.csv test.db
           working_directory: ${{ env.TESTDATA }}
+      - name: tests
+        run: |
+          npm test
       - name: Logout
         run: docker logout docker.pkg.github.com
         if: ${{ always() }}

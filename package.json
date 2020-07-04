@@ -4,7 +4,7 @@
   "description": "GitHub Actions for csvs-to-sqlite. A tool that converts CSV files into a SQLite database.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "bats __tests__"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,10 @@
   "bugs": {
     "url": "https://github.com/shihanng/csvs-to-sqlite-act/issues"
   },
-  "homepage": "https://github.com/shihanng/csvs-to-sqlite-act#readme"
+  "homepage": "https://github.com/shihanng/csvs-to-sqlite-act#readme",
+  "devDependencies": {
+    "bats": "^1.1.0",
+    "bats-assert": "git+https://github.com/bats-core/bats-assert.git",
+    "bats-support": "git+https://github.com/bats-core/bats-support.git"
+  }
 }
