@@ -1,7 +1,9 @@
+name: Tests
+
 on: [push]
 
 jobs:
-  hello_world_job:
+  tests:
     runs-on: ubuntu-latest
     name: Test run
     steps:
