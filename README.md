@@ -19,7 +19,7 @@ Specify working-directory. Default is the root of the project.
 ## Example usage
 
 ```yml
-- uses: actions/csvs-to-sqlite@v1
+- uses: shihanng/csvs-to-sqlite-act@v1.0.0
   with:
     cli_args: test.csv test.db
     working_directory: ./
