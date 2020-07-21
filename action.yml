@@ -4,6 +4,7 @@ inputs:
   working_directory:
     description: "Specify working-directory. Default is the root of the project."
     default: "./"
+    required: false
   cli_args:
     description: "Arguments to pass to csvs-to-sqlite"
     required: true
